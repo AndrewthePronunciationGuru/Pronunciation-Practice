@@ -96,6 +96,10 @@
                 audioSource.src = item.audio; // Reference audio files directly in the root
                 audioSource.type = "audio/mp3";
                 audioControl.appendChild(audioSource);
+                
+                // Make sure no download option is available, only playback speed and play
+                audioControl.removeAttribute("download"); // Ensure no download is enabled
+                
                 audioCell.appendChild(audioControl);
                 row.appendChild(audioCell);
                 
