@@ -8,24 +8,47 @@
         body {
             font-family: Arial, sans-serif;
         }
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
         .audio-control {
             margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <h2>Pronunciation Practice</h2>
+    <h2 style="text-align:center;">Pronunciation Practice</h2>
     
     <!-- Dropdown to select the set of words -->
-    <label for="pronunciation-set">Choose your pronunciation set:</label>
-    <select id="pronunciation-set" onchange="updateWordList()">
+    <label for="pronunciation-set" style="display: block; text-align:center; margin-top: 20px;">Choose your pronunciation set:</label>
+    <select id="pronunciation-set" onchange="updateWordList()" style="display: block; margin: 0 auto;">
         <option value="/θ/">/θ/ (thin, theme, thumb, etc.)</option>
         <option value="/ð/">/ð/ (this, that, these, those, they)</option>
     </select>
     
-    <h3>Word List</h3>
+    <h3 style="text-align:center; margin-top: 30px;">Word List</h3>
+    
+    <!-- Table for the word list -->
     <table id="word-table">
-        <!-- The word list will be dynamically generated here -->
+        <thead>
+            <tr>
+                <th>Word</th>
+                <th>Audio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- The word list will be dynamically generated here -->
+        </tbody>
     </table>
     
     <script>
@@ -50,12 +73,13 @@
         function updateWordList() {
             const setValue = document.getElementById("pronunciation-set").value;
             let wordList = setValue === "/θ/" ? wordsSet1 : wordsSet2;
-            const wordTable = document.getElementById("word-table");
-            wordTable.innerHTML = ""; // Clear the current list
+            const wordTableBody = document.querySelector("#word-table tbody");
+            wordTableBody.innerHTML = ""; // Clear the current list
 
             // Create a new table for the selected set of words
             wordList.forEach((item) => {
                 const row = document.createElement("tr");
+
                 const wordCell = document.createElement("td");
                 wordCell.textContent = item.word;
                 row.appendChild(wordCell);
@@ -70,7 +94,7 @@
                 audioCell.appendChild(audioControl);
                 row.appendChild(audioCell);
                 
-                wordTable.appendChild(row);
+                wordTableBody.appendChild(row);
             });
         }
 
