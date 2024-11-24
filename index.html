@@ -59,19 +59,19 @@
     <script>
         // List of words for each set
         const wordsSet1 = [
-            { word: "thin", audio: "audio/thin.mp3" },
-            { word: "theme", audio: "audio/theme.mp3" },
-            { word: "thumb", audio: "audio/thumb.mp3" },
-            { word: "third", audio: "audio/third.mp3" },
-            { word: "thought", audio: "audio/thought.mp3" }
+            { word: "thin", audio: "thin.mp3" },
+            { word: "theme", audio: "theme.mp3" },
+            { word: "thumb", audio: "thumb.mp3" },
+            { word: "third", audio: "third.mp3" },
+            { word: "thought", audio: "thought.mp3" }
         ];
 
         const wordsSet2 = [
-            { word: "this", audio: "audio/this.mp3" },
-            { word: "that", audio: "audio/that.mp3" },
-            { word: "these", audio: "audio/these.mp3" },
-            { word: "those", audio: "audio/those.mp3" },
-            { word: "they", audio: "audio/they.mp3" }
+            { word: "this", audio: "this.mp3" },
+            { word: "that", audio: "that.mp3" },
+            { word: "these", audio: "these.mp3" },
+            { word: "those", audio: "those.mp3" },
+            { word: "they", audio: "they.mp3" }
         ];
 
         // Function to update the word list based on the selected set
@@ -93,7 +93,7 @@
                 const audioControl = document.createElement("audio");
                 audioControl.controls = true;
                 const audioSource = document.createElement("source");
-                audioSource.src = item.audio;
+                audioSource.src = item.audio; // Reference audio files directly in the root
                 audioSource.type = "audio/mp3";
                 audioControl.appendChild(audioSource);
                 audioCell.appendChild(audioControl);
