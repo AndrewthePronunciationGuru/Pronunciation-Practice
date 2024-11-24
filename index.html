@@ -3,93 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pronunciation Practice - Voiceless TH Sound</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 600px;
-            margin: 20px;
-        }
-
-        .dropdown {
-            margin-bottom: 10px;
-            background-color: #fff;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-
-        select {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-        }
-
-        .audio-player {
-            margin-top: 10px;
-        }
-
-        audio {
-            width: 100%;
-        }
-    </style>
+    <title>Pronunciation Practice</title>
 </head>
 <body>
-
-    <h1>Pronunciation Practice: Voiceless TH Sound</h1>
-
-    <div class="container">
-        <!-- Dropdown for word/phrase selection -->
-        <div class="dropdown">
-            <label for="audioSelection">Select a word/phrase:</label>
-            <select id="audioSelection">
-                <option value="thin.mp3">Thin</option>
-                <option value="theme.mp3">Theme</option>
-                <option value="third.mp3">Third</option>
-                <option value="thumb.mp3">Thumb</option>
-                <option value="thought.mp3">Thought</option>
-            </select>
-        </div>
-
-        <!-- Audio player -->
-        <div class="audio-player">
-            <audio id="audioPlayer" controls>
-                <source id="audioSource" src="https://your-github-url/your-repository-path/your-audio-files-folder/thin.mp3" type="audio/mp3">
+    <h1>Pronunciation Practice for /θ/ sound</h1>
+    
+    <!-- List of words with separate audio controls -->
+    <ul>
+        <li>
+            <a href="#">Thin</a>
+            <audio controls>
+                <source src="https://github.com/AndrewthePronunciationGuru/Pronunciation-Practice/raw/main/thin.mp3" type="audio/mp3">
                 Your browser does not support the audio element.
             </audio>
-        </div>
-    </div>
-
-    <script>
-        const audioSelection = document.getElementById('audioSelection');
-        const audioPlayer = document.getElementById('audioPlayer');
-        const audioSource = document.getElementById('audioSource');
-
-        audioSelection.addEventListener('change', function() {
-            const selectedValue = audioSelection.value;
-            audioSource.src = `https://your-github-url/your-repository-path/your-audio-files-folder/${selectedValue}`;
-            audioPlayer.load();
-            audioPlayer.play();
-        });
-    </script>
-
+        </li>
+        <li>
+            <a href="#">Theme</a>
+            <audio controls>
+                <source src="https://github.com/AndrewthePronunciationGuru/Pronunciation-Practice/raw/main/theme.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </li>
+        <li>
+            <a href="#">Third</a>
+            <audio controls>
+                <source src="https://github.com/AndrewthePronunciationGuru/Pronunciation-Practice/raw/main/third.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </li>
+        <li>
+            <a href="#">Thumb</a>
+            <audio controls>
+                <source src="https://github.com/AndrewthePronunciationGuru/Pronunciation-Practice/raw/main/thumb.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </li>
+        <li>
+            <a href="#">Thought</a>
+            <audio controls>
+                <source src="https://github.com/AndrewthePronunciationGuru/Pronunciation-Practice/raw/main/thought.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </li>
+    </ul>
 </body>
 </html>
