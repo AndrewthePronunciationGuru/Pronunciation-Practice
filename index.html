@@ -4,47 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pronunciation Practice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        table {
+            width: 60%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        td {
+            background-color: #fff;
+        }
+        a {
+            text-decoration: none; /* Remove underline */
+            color: #333; /* Set text color */
+            font-weight: bold;
+        }
+        audio {
+            width: 80%; /* Set width for audio controls */
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Pronunciation Practice for /θ/ sound</h1>
-    
-    <!-- List of words with separate audio controls -->
-    <ul>
-        <li>
-            <a href="#">Thin</a>
-            <audio controls>
-                <source src="https://github.com/AndrewthePronunciationGuru/Pronunciation-Practice/raw/main/thin.mp3" type="audio/mp3">
-                Your browser does not support the audio element.
-            </audio>
-        </li>
-        <li>
-            <a href="#">Theme</a>
-            <audio controls>
-                <source src="https://github.com/AndrewthePronunciationGuru/Pronunciation-Practice/raw/main/theme.mp3" type="audio/mp3">
-                Your browser does not support the audio element.
-            </audio>
-        </li>
-        <li>
-            <a href="#">Third</a>
-            <audio controls>
-                <source src="https://github.com/AndrewthePronunciationGuru/Pronunciation-Practice/raw/main/third.mp3" type="audio/mp3">
-                Your browser does not support the audio element.
-            </audio>
-        </li>
-        <li>
-            <a href="#">Thumb</a>
-            <audio controls>
-                <source src="https://github.com/AndrewthePronunciationGuru/Pronunciation-Practice/raw/main/thumb.mp3" type="audio/mp3">
-                Your browser does not support the audio element.
-            </audio>
-        </li>
-        <li>
-            <a href="#">Thought</a>
-            <audio controls>
-                <source src="https://github.com/AndrewthePronunciationGuru/Pronunciation-Practice/raw/main/thought.mp3" type="audio/mp3">
-                Your browser does not support the audio element.
-            </audio>
-        </li>
-    </ul>
+
+    <h1>Pronunciation Practice</h1>
+
+    <table>
+        <tr>
+            <th>Word/Phrase</th>
+            <th>Audio Control</th>
+        </tr>
+        <tr>
+            <td><a href="#">Thin</a></td>
+            <td><audio controls><source src="thin.mp3" type="audio/mp3"></audio></td>
+        </tr>
+        <tr>
+            <td><a href="#">Theme</a></td>
+            <td><audio controls><source src="theme.mp3" type="audio/mp3"></audio></td>
+        </tr>
+        <tr>
+            <td><a href="#">Third</a></td>
+            <td><audio controls><source src="third.mp3" type="audio/mp3"></audio></td>
+        </tr>
+        <tr>
+            <td><a href="#">Thumb</a></td>
+            <td><audio controls><source src="thumb.mp3" type="audio/mp3"></audio></td>
+        </tr>
+        <tr>
+            <td><a href="#">Thought</a></td>
+            <td><audio controls><source src="thought.mp3" type="audio/mp3"></audio></td>
+        </tr>
+    </table>
+
 </body>
 </html>
