@@ -28,7 +28,7 @@
         a {
             text-decoration: none; /* Remove underline */
             color: #333; /* Set text color */
-            font-weight: bold;
+            font-weight: normal; /* Keep original case of words */
         }
         audio {
             width: 80%; /* Set width for audio controls */
@@ -42,8 +42,8 @@
 
     <table>
         <tr>
-            <th>Word/Phrase</th>
-            <th>Audio Control</th>
+            <th>Word</th>
+            <th>Audio</th>
         </tr>
         <tr>
             <td><a href="#">Thin</a></td>
@@ -67,5 +67,19 @@
         </tr>
     </table>
 
+    <script>
+        // This script will prevent the download button in audio controls from showing up
+        document.querySelectorAll('audio').forEach(audioElement => {
+            // Remove the 'download' attribute to stop the download button from showing up
+            audioElement.addEventListener('loadedmetadata', () => {
+                const controls = audioElement.querySelector('audio::-webkit-media-controls-download-button');
+                if (controls) {
+                    controls.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>
+
