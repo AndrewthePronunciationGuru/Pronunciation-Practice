@@ -5,13 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pronunciation Practice</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
         table {
-            width: 60%;
-            margin: 20px auto;
+            width: 100%;
+            margin: 20px 0;
             border-collapse: collapse;
         }
         th, td {
@@ -22,32 +18,28 @@
         th {
             background-color: #f4f4f4;
         }
-        td {
-            text-transform: lowercase; /* Keeps the text lowercase */
-        }
         audio {
-            display: block;
-            margin: 0 auto;
-            width: 90%;
+            width: 100%;
+            max-width: 300px;
         }
-        /* Hides the download button by hiding the download option */
-        audio::-webkit-media-controls-enclosure {
+        /* Remove download option from audio controls */
+        audio::-webkit-media-controls-panel {
             display: none !important;
         }
     </style>
 </head>
 <body>
-    <h2>Pronunciation Practice</h2>
 
-    <label for="pronunciation-set">Choose your pronunciation set:</label>
-    <select id="pronunciation-set" onchange="updateWordList()">
-        <option value="θ">/θ/ (thin, theme, thumb, etc.)</option>
-        <option value="ð">/ð/ (this, that, these, those, they)</option>
+    <h1>Pronunciation Practice</h1>
+
+    <label for="pronunciation-set">Choose a set:</label>
+    <select id="pronunciation-set">
+        <option value="theta">/θ/ (TH)</option>
+        <option value="eth">/ð/ (DH)</option>
     </select>
 
-    <h3>Word List</h3>
-
-    <table id="word-table">
+    <h3>Word List:</h3>
+    <table id="word-list">
         <thead>
             <tr>
                 <th>Word</th>
@@ -55,58 +47,38 @@
             </tr>
         </thead>
         <tbody>
-            <!-- The word list will be dynamically generated here -->
+            <tr class="theta">
+                <td>thin</td>
+                <td><audio controls><source src="thin.mp3" type="audio/mp3">Your browser does not support the audio element.</audio></td>
+            </tr>
+            <tr class="theta">
+                <td>theme</td>
+                <td><audio controls><source src="theme.mp3" type="audio/mp3">Your browser does not support the audio element.</audio></td>
+            </tr>
+            <!-- Add more words as necessary -->
         </tbody>
     </table>
 
     <script>
-        const wordsSet1 = [
-            { word: "thin", audio: "thin.mp3" },
-            { word: "theme", audio: "theme.mp3" },
-            { word: "thumb", audio: "thumb.mp3" },
-            { word: "third", audio: "third.mp3" },
-            { word: "thought", audio: "thought.mp3" }
-        ];
+        const select = document.getElementById('pronunciation-set');
+        const table = document.getElementById('word-list');
+        
+        select.addEventListener('change', function() {
+            const value = select.value;
+            
+            // Show the correct set of words
+            if (value === 'theta') {
+                table.querySelectorAll('.theta').forEach(row => row.style.display = 'table-row');
+                table.querySelectorAll('.eth').forEach(row => row.style.display = 'none');
+            } else if (value === 'eth') {
+                table.querySelectorAll('.eth').forEach(row => row.style.display = 'table-row');
+                table.querySelectorAll('.theta').forEach(row => row.style.display = 'none');
+            }
+        });
 
-        const wordsSet2 = [
-            { word: "this", audio: "this.mp3" },
-            { word: "that", audio: "that.mp3" },
-            { word: "these", audio: "these.mp3" },
-            { word: "those", audio: "those.mp3" },
-            { word: "they", audio: "they.mp3" }
-        ];
-
-        // Function to update the word list based on the selected set
-        function updateWordList() {
-            const setValue = document.getElementById("pronunciation-set").value;
-            let wordList = setValue === "θ" ? wordsSet1 : wordsSet2;
-            const wordTableBody = document.querySelector("#word-table tbody");
-            wordTableBody.innerHTML = ""; // Clear the current list
-
-            // Create a new table for the selected set of words
-            wordList.forEach((item) => {
-                const row = document.createElement("tr");
-
-                const wordCell = document.createElement("td");
-                wordCell.textContent = item.word;
-                row.appendChild(wordCell);
-                
-                const audioCell = document.createElement("td");
-                const audioControl = document.createElement("audio");
-                audioControl.controls = true;
-                const audioSource = document.createElement("source");
-                audioSource.src = item.audio; // Reference audio files directly in the root
-                audioSource.type = "audio/mp3";
-                audioControl.appendChild(audioSource);
-                audioCell.appendChild(audioControl);
-                row.appendChild(audioCell);
-                
-                wordTableBody.appendChild(row);
-            });
-        }
-
-        // Initialize the list on page load
-        window.onload = updateWordList;
+        // Trigger change event on page load to display default set
+        select.dispatchEvent(new Event('change'));
     </script>
+
 </body>
 </html>
