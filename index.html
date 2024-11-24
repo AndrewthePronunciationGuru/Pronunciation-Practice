@@ -30,7 +30,7 @@
             text-transform: lowercase;
         }
 
-        /* Hide download button in audio controls */
+        /* Remove the download option but keep playback speed */
         audio::-webkit-media-controls-panel {
             display: block !important;
         }
@@ -39,9 +39,17 @@
             display: none !important;
         }
 
-        /* The play button will show */
+        /* Ensure audio controls are centered in the table */
         audio {
-            pointer-events: all;
+            width: 100%;  /* Make the audio control width 100% of its container */
+            max-width: 300px;  /* Set a max-width for a nice, consistent size */
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* This will center the word in each cell */
+        td {
+            text-align: center;
         }
     </style>
 </head>
