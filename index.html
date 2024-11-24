@@ -24,8 +24,8 @@
         td {
             text-transform: lowercase; /* Ensures no unnecessary capitalization */
         }
-        audio {
-            outline: none;
+        .audio-control {
+            width: 200px; /* Adjust the size of the audio control */
         }
     </style>
 </head>
@@ -42,23 +42,48 @@
         <tbody>
             <tr>
                 <td>thin</td>
-                <td><audio controls><source src="thin.mp3" type="audio/mp3">Your browser does not support the audio element.</audio></td>
+                <td>
+                    <audio class="audio-control" controls controlslist="nodownload">
+                        <source src="thin.mp3" type="audio/mp3">
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
             </tr>
             <tr>
                 <td>theme</td>
-                <td><audio controls><source src="theme.mp3" type="audio/mp3">Your browser does not support the audio element.</audio></td>
+                <td>
+                    <audio class="audio-control" controls controlslist="nodownload">
+                        <source src="theme.mp3" type="audio/mp3">
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
             </tr>
             <tr>
                 <td>third</td>
-                <td><audio controls><source src="third.mp3" type="audio/mp3">Your browser does not support the audio element.</audio></td>
+                <td>
+                    <audio class="audio-control" controls controlslist="nodownload">
+                        <source src="third.mp3" type="audio/mp3">
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
             </tr>
             <tr>
                 <td>thumb</td>
-                <td><audio controls><source src="thumb.mp3" type="audio/mp3">Your browser does not support the audio element.</audio></td>
+                <td>
+                    <audio class="audio-control" controls controlslist="nodownload">
+                        <source src="thumb.mp3" type="audio/mp3">
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
             </tr>
             <tr>
                 <td>thought</td>
-                <td><audio controls><source src="thought.mp3" type="audio/mp3">Your browser does not support the audio element.</audio></td>
+                <td>
+                    <audio class="audio-control" controls controlslist="nodownload">
+                        <source src="thought.mp3" type="audio/mp3">
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
             </tr>
         </tbody>
     </table>
