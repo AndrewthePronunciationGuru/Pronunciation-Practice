@@ -5,27 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pronunciation Practice</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
+            margin: 20px auto;
         }
         th, td {
+            border: 1px solid #ccc;
             text-align: center;
-            padding: 8px;
+            padding: 10px;
         }
         th {
-            background-color: #f2f2f2;
+            background-color: #f4f4f4;
         }
         td {
-            border: 1px solid #ddd;
+            text-transform: lowercase; /* Ensures no unnecessary capitalization */
         }
         audio {
-            width: 100%;
+            outline: none;
         }
     </style>
 </head>
 <body>
     <h1>Pronunciation Practice</h1>
+    <p>Click the play button next to each word to hear its pronunciation.</p>
     <table>
         <thead>
             <tr>
@@ -36,23 +42,23 @@
         <tbody>
             <tr>
                 <td>thin</td>
-                <td><audio controls><source src="audio/thin.mp3" type="audio/mp3">Your browser does not support the audio element.</audio></td>
+                <td><audio controls><source src="thin.mp3" type="audio/mp3">Your browser does not support the audio element.</audio></td>
             </tr>
             <tr>
                 <td>theme</td>
-                <td><audio controls><source src="audio/theme.mp3" type="audio/mp3">Your browser does not support the audio element.</audio></td>
+                <td><audio controls><source src="theme.mp3" type="audio/mp3">Your browser does not support the audio element.</audio></td>
             </tr>
             <tr>
                 <td>third</td>
-                <td><audio controls><source src="audio/third.mp3" type="audio/mp3">Your browser does not support the audio element.</audio></td>
+                <td><audio controls><source src="third.mp3" type="audio/mp3">Your browser does not support the audio element.</audio></td>
             </tr>
             <tr>
                 <td>thumb</td>
-                <td><audio controls><source src="audio/thumb.mp3" type="audio/mp3">Your browser does not support the audio element.</audio></td>
+                <td><audio controls><source src="thumb.mp3" type="audio/mp3">Your browser does not support the audio element.</audio></td>
             </tr>
             <tr>
                 <td>thought</td>
-                <td><audio controls><source src="audio/thought.mp3" type="audio/mp3">Your browser does not support the audio element.</audio></td>
+                <td><audio controls><source src="thought.mp3" type="audio/mp3">Your browser does not support the audio element.</audio></td>
             </tr>
         </tbody>
     </table>
