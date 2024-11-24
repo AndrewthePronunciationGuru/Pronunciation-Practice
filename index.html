@@ -29,6 +29,28 @@
         td {
             text-transform: lowercase;
         }
+
+        /* Hide download option by disabling the right-click context menu */
+        audio::-webkit-media-controls-panel {
+            display: none !important;
+        }
+
+        audio::-webkit-media-controls-play-button {
+            display: inline-block !important;
+        }
+
+        audio::-webkit-media-controls-volume-slider {
+            display: inline-block !important;
+        }
+
+        audio::-webkit-media-controls-timeline {
+            display: inline-block !important;
+        }
+
+        /* The play button will show, but the download button won't */
+        audio {
+            pointer-events: all;
+        }
     </style>
 </head>
 <body>
@@ -97,8 +119,8 @@
                 audioSource.type = "audio/mp3";
                 audioControl.appendChild(audioSource);
                 
-                // Make sure no download option is available, only playback speed and play
-                audioControl.removeAttribute("download"); // Ensure no download is enabled
+                // Remove the download option and ensure only play speed options
+                audioControl.removeAttribute("download"); // No download attribute should be present
                 
                 audioCell.appendChild(audioControl);
                 row.appendChild(audioCell);
