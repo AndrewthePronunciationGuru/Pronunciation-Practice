@@ -24,6 +24,11 @@
         .audio-control {
             margin-top: 10px;
         }
+
+        /* Force words to display in lowercase */
+        td {
+            text-transform: lowercase;
+        }
     </style>
 </head>
 <body>
@@ -54,19 +59,19 @@
     <script>
         // List of words for each set
         const wordsSet1 = [
-            { word: "Thin", audio: "audio/thin.mp3" },
-            { word: "Theme", audio: "audio/theme.mp3" },
-            { word: "Thumb", audio: "audio/thumb.mp3" },
-            { word: "Third", audio: "audio/third.mp3" },
-            { word: "Thought", audio: "audio/thought.mp3" }
+            { word: "thin", audio: "audio/thin.mp3" },
+            { word: "theme", audio: "audio/theme.mp3" },
+            { word: "thumb", audio: "audio/thumb.mp3" },
+            { word: "third", audio: "audio/third.mp3" },
+            { word: "thought", audio: "audio/thought.mp3" }
         ];
 
         const wordsSet2 = [
-            { word: "This", audio: "audio/this.mp3" },
-            { word: "That", audio: "audio/that.mp3" },
-            { word: "These", audio: "audio/these.mp3" },
-            { word: "Those", audio: "audio/those.mp3" },
-            { word: "They", audio: "audio/they.mp3" }
+            { word: "this", audio: "audio/this.mp3" },
+            { word: "that", audio: "audio/that.mp3" },
+            { word: "these", audio: "audio/these.mp3" },
+            { word: "those", audio: "audio/those.mp3" },
+            { word: "they", audio: "audio/they.mp3" }
         ];
 
         // Function to update the word list based on the selected set
