@@ -7,9 +7,10 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            text-align: center;
         }
         table {
-            width: 50%;
+            width: 60%;
             margin: 20px auto;
             border-collapse: collapse;
         }
@@ -21,51 +22,28 @@
         th {
             background-color: #f4f4f4;
         }
-        .audio-control {
-            margin-top: 10px;
-        }
-
-        /* Force words to display in lowercase */
-        td {
-            text-transform: lowercase;
-        }
-
-        /* Remove the download option but keep playback speed */
-        audio::-webkit-media-controls-panel {
-            display: block !important;
-        }
-
-        audio::-webkit-media-controls-download-button {
-            display: none !important;
-        }
-
-        /* Ensure audio controls are centered in the table */
         audio {
-            width: 100%;  /* Make the audio control width 100% of its container */
-            max-width: 300px;  /* Set a max-width for a nice, consistent size */
-            margin: 0 auto;
+            max-width: 100%;
             display: block;
+            margin: 0 auto;
         }
-
-        /* This will center the word in each cell */
         td {
-            text-align: center;
+            text-transform: lowercase; /* Keeps the text lowercase */
         }
     </style>
 </head>
 <body>
-    <h2 style="text-align:center;">Pronunciation Practice</h2>
-    
+    <h2>Pronunciation Practice</h2>
+
     <!-- Dropdown to select the set of words -->
-    <label for="pronunciation-set" style="display: block; text-align:center; margin-top: 20px;">Choose your pronunciation set:</label>
-    <select id="pronunciation-set" onchange="updateWordList()" style="display: block; margin: 0 auto;">
-        <option value="/θ/">/θ/ (thin, theme, thumb, etc.)</option>
-        <option value="/ð/">/ð/ (this, that, these, those, they)</option>
+    <label for="pronunciation-set">Choose your pronunciation set:</label>
+    <select id="pronunciation-set" onchange="updateWordList()">
+        <option value="θ">/θ/ (thin, theme, thumb, etc.)</option>
+        <option value="ð">/ð/ (this, that, these, those, they)</option>
     </select>
-    
-    <h3 style="text-align:center; margin-top: 30px;">Word List</h3>
-    
-    <!-- Table for the word list -->
+
+    <h3>Word List</h3>
+
     <table id="word-table">
         <thead>
             <tr>
@@ -77,9 +55,8 @@
             <!-- The word list will be dynamically generated here -->
         </tbody>
     </table>
-    
+
     <script>
-        // List of words for each set
         const wordsSet1 = [
             { word: "thin", audio: "thin.mp3" },
             { word: "theme", audio: "theme.mp3" },
@@ -99,7 +76,7 @@
         // Function to update the word list based on the selected set
         function updateWordList() {
             const setValue = document.getElementById("pronunciation-set").value;
-            let wordList = setValue === "/θ/" ? wordsSet1 : wordsSet2;
+            let wordList = setValue === "θ" ? wordsSet1 : wordsSet2;
             const wordTableBody = document.querySelector("#word-table tbody");
             wordTableBody.innerHTML = ""; // Clear the current list
 
@@ -118,10 +95,6 @@
                 audioSource.src = item.audio; // Reference audio files directly in the root
                 audioSource.type = "audio/mp3";
                 audioControl.appendChild(audioSource);
-
-                // Keep audio controls but remove download option
-                audioControl.removeAttribute("download"); // No download attribute should be present
-                
                 audioCell.appendChild(audioControl);
                 row.appendChild(audioCell);
                 
