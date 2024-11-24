@@ -30,24 +30,16 @@
             text-transform: lowercase;
         }
 
-        /* Hide download option by disabling the right-click context menu */
+        /* Hide download button in audio controls */
         audio::-webkit-media-controls-panel {
+            display: block !important;
+        }
+
+        audio::-webkit-media-controls-download-button {
             display: none !important;
         }
 
-        audio::-webkit-media-controls-play-button {
-            display: inline-block !important;
-        }
-
-        audio::-webkit-media-controls-volume-slider {
-            display: inline-block !important;
-        }
-
-        audio::-webkit-media-controls-timeline {
-            display: inline-block !important;
-        }
-
-        /* The play button will show, but the download button won't */
+        /* The play button will show */
         audio {
             pointer-events: all;
         }
@@ -118,8 +110,8 @@
                 audioSource.src = item.audio; // Reference audio files directly in the root
                 audioSource.type = "audio/mp3";
                 audioControl.appendChild(audioSource);
-                
-                // Remove the download option and ensure only play speed options
+
+                // Keep audio controls but remove download option
                 audioControl.removeAttribute("download"); // No download attribute should be present
                 
                 audioCell.appendChild(audioControl);
