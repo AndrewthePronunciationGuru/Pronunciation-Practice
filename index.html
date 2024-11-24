@@ -8,84 +8,74 @@
         body {
             font-family: Arial, sans-serif;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px auto;
-        }
-        th, td {
-            border: 1px solid #ccc;
-            text-align: center;
-            padding: 10px;
-        }
-        th {
-            background-color: #f4f4f4;
-        }
-        td {
-            text-transform: lowercase; /* Ensures no unnecessary capitalization */
-        }
         .audio-control {
-            width: 200px; /* Adjust the size of the audio control */
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <h1>Pronunciation Practice</h1>
-    <p>Click the play button next to each word to hear its pronunciation.</p>
-    <table>
-        <thead>
-            <tr>
-                <th>Word</th>
-                <th>Audio</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>thin</td>
-                <td>
-                    <audio class="audio-control" controls controlslist="nodownload">
-                        <source src="thin.mp3" type="audio/mp3">
-                        Your browser does not support the audio element.
-                    </audio>
-                </td>
-            </tr>
-            <tr>
-                <td>theme</td>
-                <td>
-                    <audio class="audio-control" controls controlslist="nodownload">
-                        <source src="theme.mp3" type="audio/mp3">
-                        Your browser does not support the audio element.
-                    </audio>
-                </td>
-            </tr>
-            <tr>
-                <td>third</td>
-                <td>
-                    <audio class="audio-control" controls controlslist="nodownload">
-                        <source src="third.mp3" type="audio/mp3">
-                        Your browser does not support the audio element.
-                    </audio>
-                </td>
-            </tr>
-            <tr>
-                <td>thumb</td>
-                <td>
-                    <audio class="audio-control" controls controlslist="nodownload">
-                        <source src="thumb.mp3" type="audio/mp3">
-                        Your browser does not support the audio element.
-                    </audio>
-                </td>
-            </tr>
-            <tr>
-                <td>thought</td>
-                <td>
-                    <audio class="audio-control" controls controlslist="nodownload">
-                        <source src="thought.mp3" type="audio/mp3">
-                        Your browser does not support the audio element.
-                    </audio>
-                </td>
-            </tr>
-        </tbody>
+    <h2>Pronunciation Practice</h2>
+    
+    <!-- Dropdown to select the set of words -->
+    <label for="pronunciation-set">Choose your pronunciation set:</label>
+    <select id="pronunciation-set" onchange="updateWordList()">
+        <option value="/θ/">/θ/ (thin, theme, thumb, etc.)</option>
+        <option value="/ð/">/ð/ (this, that, these, those, they)</option>
+    </select>
+    
+    <h3>Word List</h3>
+    <table id="word-table">
+        <!-- The word list will be dynamically generated here -->
     </table>
+    
+    <script>
+        // List of words for each set
+        const wordsSet1 = [
+            { word: "Thin", audio: "audio/thin.mp3" },
+            { word: "Theme", audio: "audio/theme.mp3" },
+            { word: "Thumb", audio: "audio/thumb.mp3" },
+            { word: "Third", audio: "audio/third.mp3" },
+            { word: "Thought", audio: "audio/thought.mp3" }
+        ];
+
+        const wordsSet2 = [
+            { word: "This", audio: "audio/this.mp3" },
+            { word: "That", audio: "audio/that.mp3" },
+            { word: "These", audio: "audio/these.mp3" },
+            { word: "Those", audio: "audio/those.mp3" },
+            { word: "They", audio: "audio/they.mp3" }
+        ];
+
+        // Function to update the word list based on the selected set
+        function updateWordList() {
+            const setValue = document.getElementById("pronunciation-set").value;
+            let wordList = setValue === "/θ/" ? wordsSet1 : wordsSet2;
+            const wordTable = document.getElementById("word-table");
+            wordTable.innerHTML = ""; // Clear the current list
+
+            // Create a new table for the selected set of words
+            wordList.forEach((item) => {
+                const row = document.createElement("tr");
+                const wordCell = document.createElement("td");
+                wordCell.textContent = item.word;
+                row.appendChild(wordCell);
+                
+                const audioCell = document.createElement("td");
+                const audioControl = document.createElement("audio");
+                audioControl.controls = true;
+                const audioSource = document.createElement("source");
+                audioSource.src = item.audio;
+                audioSource.type = "audio/mp3";
+                audioControl.appendChild(audioSource);
+                audioCell.appendChild(audioControl);
+                row.appendChild(audioCell);
+                
+                wordTable.appendChild(row);
+            });
+        }
+
+        // Initialize the list on page load
+        window.onload = updateWordList;
+    </script>
 </body>
 </html>
