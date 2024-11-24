@@ -22,20 +22,23 @@
         th {
             background-color: #f4f4f4;
         }
-        audio {
-            max-width: 100%;
-            display: block;
-            margin: 0 auto;
-        }
         td {
             text-transform: lowercase; /* Keeps the text lowercase */
+        }
+        audio {
+            display: block;
+            margin: 0 auto;
+            width: 90%;
+        }
+        /* Hides the download button by hiding the download option */
+        audio::-webkit-media-controls-enclosure {
+            display: none !important;
         }
     </style>
 </head>
 <body>
     <h2>Pronunciation Practice</h2>
 
-    <!-- Dropdown to select the set of words -->
     <label for="pronunciation-set">Choose your pronunciation set:</label>
     <select id="pronunciation-set" onchange="updateWordList()">
         <option value="θ">/θ/ (thin, theme, thumb, etc.)</option>
